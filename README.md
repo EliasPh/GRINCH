@@ -100,7 +100,7 @@ SQLite version 3.37.2 2022-01-06 13:25:41
 Enter ".help" for usage hints.
 sqlite> CREATE TABLE dhtsensorreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
 sqlite> CREATE TABLE fanspeedreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, fanspeed NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
-sqlite> COMMIT;
+sqlite> COMMIT; -> this might fail, dont worry
 sqlite> .quit
 ```
 you will find the file sensordata.db in your current directory
@@ -110,7 +110,15 @@ you will find the file sensordata.db in your current directory
 ## A) Install Flask
 `> pip3 install flask`
 
+```
+raspberrypi@raspberrypi:~/my-project/GRINCH $ pip3 install flask
+Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Requirement already satisfied: flask in /usr/lib/python3/dist-packages (1.1.2)
 
+```
+
+## How to start the server
+> python "path to where you cloned the repo/GRINCH/the-actial-code/webserver/webserver.py
 
 
 
