@@ -4,6 +4,7 @@ import datetime
 from sensor import Sensor
 from fan import Fan
 from database_connection import DatabaseConnection
+import random
 class Project:
   # class attribute
   startTime = 0
@@ -29,9 +30,9 @@ class Project:
     self.fans[0].startSpinning()
     
     while self.active:
-      time.sleep(5)
+      time.sleep(1)
       print("----------------------")
-      self.fans[0].increaseSpeed(5)
+      self.fans[0].decreaseSpeed(5+random.randint(0, 10))
       # print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
       # print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       print("Fan: " + str(self.fans[0].getCurrentSpeed()))
