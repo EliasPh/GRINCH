@@ -28,7 +28,7 @@ def index():
 @app.route("/startsession")
 def startSensorSession():
     currentThread=threading.Thread(target=currentProject.startSensorSession())
-    currentThread.start()
+   #  currentThread.start()
     #currentProject.startSensorSession()
     templateData = {
       'project_running'  : 'yes',
