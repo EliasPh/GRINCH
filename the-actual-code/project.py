@@ -54,7 +54,7 @@ class Project:
     # self.fans[0].stopSpinning()
     print("stopped sensor session...")
 
-  def fetchAllDBData():
+  def fetchAllDBData(self):
     currentDatabaseConnection = DatabaseConnection("sensordata.db")
     currentDatabaseConnection.connect()
     sensorAData = currentDatabaseConnection.readSensorAData()
