@@ -123,8 +123,17 @@ Requirement already satisfied: flask in /usr/lib/python3/dist-packages (1.1.2)
 
 
 ### Install the sensors software
+--> this is quite the hassle <--
+you MUST read this:
+https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi
+
+> sudo python3 -m pip install --force-reinstall adafruit-blinka
 
 > pip3 install adafruit-circuitpython-dht
+
+read this: https://github.com/adafruit/Adafruit_CircuitPython_DHT
+
+
 !!! Adafruit_DHT and/or Adafruit-DHT is not supported anymore !!!
 
 

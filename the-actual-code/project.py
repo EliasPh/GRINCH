@@ -17,8 +17,8 @@ class Project:
     self.starTime = time.time()
     sensorA = Sensor(4)
     self.sensors.append(sensorA)
-    #sensorB = Sensor(7)
-    #self.sensors.append(sensorB)
+    sensorB = Sensor(3)
+    self.sensors.append(sensorB)
     fanA = Fan()
     self.fans.append(fanA)
   
@@ -36,9 +36,9 @@ class Project:
       #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
       #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
       #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
-      if(self.sensors[0].getCurrentValue() > 50):
+      if(self.sensors[0].getCurrentValue() > 20):
         self.fans[0].increaseRPM(1000)
-      if(self.sensors[0].getCurrentValue() < 50):
+      if(self.sensors[0].getCurrentValue() < 20):
         self.fans[0].decreaseRPM(1000)
 
   def stopSensorSession(self):
