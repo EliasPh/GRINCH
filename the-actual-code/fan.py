@@ -36,12 +36,12 @@ class Fan:
   
   def increaseSpeed(self, i):
     self.device.duty_cycle = int(i * 2 * 65535 / 100)
-    self.currentSpeed = self.device.duty_clcle
+    self.currentSpeed = self.device.duty_cycle
     print("Spinning increased to " + str(self.getCurrentSpeed()) + " Speed")
 
   def decreaseSpeed(self, i):
    self.device.duty_cycle = 65535 - int((i - 50) * 2 * 65535 / 100)
-   self.currentSpeed = self.device.duty_clcle
+   self.currentSpeed = self.device.duty_cycle
    print("Spinning decreased to " + str(self.getCurrentSpeed()) + " Speed")
 
   def getCurrentSpeed(self):
