@@ -29,7 +29,7 @@ def index():
 def startSensorSession():
     currentThread=threading.Thread(target=currentProject.startSensorSession())
     currentThread.start()
-    currentProject.startSensorSession()
+    #currentProject.startSensorSession()
     templateData = {
       'project_running'  : 'yes',
       }
