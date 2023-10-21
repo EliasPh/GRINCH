@@ -56,6 +56,9 @@ https://www.pythonforthelab.com/blog/storing-data-with-sqlite/
 https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/
 ### DC Fans
 https://www.digikey.com/en/maker/tutorials/2019/how-to-control-a-dc-fan-using-the-raspberry-pi
+### Sensors
+https://tutorials-raspberrypi.de/raspberry-pi-luftfeuchtigkeit-temperatur-messen-dht11-dht22/
+
 
 ## How to set up your Raspberry PI
 0. If you got a raspberry pi from your university, it may already have an OS installed. 
