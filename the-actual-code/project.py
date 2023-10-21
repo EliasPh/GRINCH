@@ -33,14 +33,14 @@ class Project:
       print("----------------------")
       print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
       print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
-      print("Fan: " + str(self.fans[0].getCurrentRPM()))
+      print("Fan: " + str(self.fans[0].getCurrentSpeed()))
       #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
       #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
       #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
-      if(self.sensors[0].getCurrentValue() > 22):
-        self.fans[0].increaseRPM(1000)
-      if(self.sensors[0].getCurrentValue() < 19):
-        self.fans[0].decreaseRPM(1000)
+      if(self.sensors[0].getCurrentValue() > 20):
+        self.fans[0].increaseSpeed(50)
+      if(self.sensors[0].getCurrentValue() < 18):
+        self.fans[0].decreaseSpeed(50) 
 
   def stopSensorSession(self):
     self.active = False
