@@ -25,20 +25,17 @@ class Project:
   def startSensorSession(self):
     print("Starting sensor session...")
     #currentDatabaseConnection = DatabaseConnection("sensordata.db")
-    self.sensors[0].startReading()
-    self.sensors[1].startReading()
+    self.active = True
     self.fans[0].startSpinning()
     
-    self.active = True
-
     while self.active:
       time.sleep(1)
       print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
       print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       print("Fan: " + str(self.fans[0].getCurrentRPM()))
-      #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue())
-      #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue())
-      #currentDatabaseConnection.saveFanData("test")
+      #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
+      #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
+      #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
       if(self.sensors[0].getCurrentValue() > 50):
         self.fans[0].increaseRPM(1000)
       if(self.sensors[0].getCurrentValue() < 50):

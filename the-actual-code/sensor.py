@@ -14,11 +14,7 @@ class Sensor:
     self.starTime = time.time()
 
   # methods
-  def startReading(self):
-    print("Reading started")
-  
-  def stopReading(self):
-    print("Reading stopped")
+
   
   def getCurrentValue(self):
     return self.readGPIO()
