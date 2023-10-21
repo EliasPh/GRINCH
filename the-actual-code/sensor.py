@@ -9,7 +9,7 @@ class Sensor:
   currentValue = 0
   startTime = 0
   gpio = 4
-  device= None
+  device = None
   # constructor
   def __init__(self, selectedGPIO):
     self.currentValue = 0
@@ -28,5 +28,10 @@ class Sensor:
     return self.readGPIO()
 
   def readGPIO(self):
+    print("Reading GPIO")
     return self.device.temperature
+  
+  def stopReading(self):
+    print("Reading stopped")
+    self.device.exit()
 

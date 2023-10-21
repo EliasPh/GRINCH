@@ -43,8 +43,8 @@ class Project:
 
   def stopSensorSession(self):
     self.active = False
-    #self.sensors[0].stopReading()
-    #self.sensors[1].stopReading()
+    self.sensors[0].stopReading()
+    self.sensors[1].stopReading()
     self.fans[0].stopSpinning()
     print("stopped sensor session...")
 
