@@ -2,22 +2,32 @@
 import sqlite3
 
 class DatabaseConnection:
+
+    connection: None
+    cursor: None
+
     def __init__(self, database_name):
         self.database_name = database_name
+        
 
-    def __enter__(self):
+    def connect(self):
         self.connection = sqlite3.connect(self.database_name)
-        return self.connection
+        self.cursor = self.connection.cursor()
 
     def __exit__(self, exc_type, exc_val, exc_tb):
         self.connection.commit()
         self.connection.close()
 
-    def saveSensorData(self,sensorName,  sensorData):
-        print("Saving sensor data...",sensorName,  sensorData)
+    def saveSensorData(self,sensorName,  sensorData, momentOfReading, dateOfReating):
+        #self.cursor.execute("INSERT INTO sensorA (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, currentdate, currenttime, device))
+               
+        #self.connection.commit()
+        print("Saving sensor data...",sensorName,  sensorData, momentOfReading,dateOfReating)
     
-    def saveFanData(self, sensorData):
-        print("Saving fan data...", sensorData)
+    def saveFanData(self, sensorData, momentOfReading,dateOfReating):
+        #self.cursor.execute("INSERT INTO fanRPM (fanspeed, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, currentdate, momentOfReading, 'fan'))
+               
+        print("Saving fan data...", sensorData, momentOfReading,dateOfReating)
            
     def readSensorData(self,sensorName):
         print("Reading sensor data...")

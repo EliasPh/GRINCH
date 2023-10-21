@@ -25,7 +25,7 @@ class Project:
   
   def startSensorSession(self):
     print("Starting sensor session...")
-    #currentDatabaseConnection = DatabaseConnection("sensordata.db")
+    currentDatabaseConnection = DatabaseConnection("sensordata.db")
     self.active = True
     # self.fans[0].startSpinning()
          
@@ -35,9 +35,12 @@ class Project:
       print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
       print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       # print("Fan: " + str(self.fans[0].getCurrentSpeed()))
-        #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
-        #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
-        #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
+      dateOfReating = datetime.datetime.now().date()     
+      momentOfReading = datetime.now().strftime("%H:%M:%S")
+      currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), momentOfReading, dateOfReating)
+      currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), momentOfReading, dateOfReating)
+      #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), momentOfReading)
+      currentDatabaseConnection.saveFanData(12, momentOfReading)
       # if(self.sensors[0].getCurrentValue() > 19):
       #   self.fans[0].increaseSpeed(5)
       # if(self.sensors[0].getCurrentValue() < 18):
