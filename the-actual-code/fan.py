@@ -10,9 +10,9 @@ class Fan:
   device = None
   # constructor
   def __init__(self):
-    GPIO.setmode(GPIO.BOARD)
+    #GPIO.setmode(GPIO.BOARD)
     self.currentSpeed = 500
-    #GPIO.setup(self.FAN_PIN, GPIO.OUT, initial=GPIO.LOW) # ValueError: A different mode has already been set!
+    GPIO.setup(self.FAN_PIN, GPIO.OUT, initial=GPIO.LOW) # ValueError: A different mode has already been set!
     device = GPIO.PWM(self.FAN_PIN,self.PWM_FREQ)
   
   # methods
