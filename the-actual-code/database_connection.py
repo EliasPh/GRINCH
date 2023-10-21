@@ -18,8 +18,13 @@ class DatabaseConnection:
         self.connection.commit()
         self.connection.close()
 
-    def saveSensorData(self,sensorName,  sensorData, momentOfReading, dateOfReading):
-        self.cursor.execute("INSERT INTO "+sensorData+" (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, dateOfReading, momentOfReading, sensorName))
+    def saveSensorDataA(self,sensorName,  sensorData, momentOfReading, dateOfReading):
+        self.cursor.execute("INSERT INTO sensorA (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, dateOfReading, momentOfReading, sensorName))
+        self.connection.commit()
+        print("Saving sensor data...",sensorName,  sensorData, momentOfReading,dateOfReading)
+    
+    def saveSensorDataB(self,sensorName,  sensorData, momentOfReading, dateOfReading):
+        self.cursor.execute("INSERT INTO sensorB (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, dateOfReading, momentOfReading, sensorName))
         self.connection.commit()
         print("Saving sensor data...",sensorName,  sensorData, momentOfReading,dateOfReading)
     

@@ -38,8 +38,8 @@ class Project:
       # print("Fan: " + str(self.fans[0].getCurrentSpeed()))
       dateOfReading = datetime.datetime.now().date()     
       momentOfReading = datetime.datetime.now().strftime("%H:%M:%S")
-      currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), momentOfReading, dateOfReading)
-      currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), momentOfReading, dateOfReading)
+      currentDatabaseConnection.saveSensorDataA("sensorA", self.sensors[0].getCurrentValue(), momentOfReading, dateOfReading)
+      currentDatabaseConnection.saveSensorDataB("sensorB", self.sensors[1].getCurrentValue(), momentOfReading, dateOfReading)
       #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), momentOfReading)
       currentDatabaseConnection.saveFanData(12, momentOfReading,dateOfReading)
       # if(self.sensors[0].getCurrentValue() > 19):
