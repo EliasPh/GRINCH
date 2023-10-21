@@ -19,14 +19,13 @@ class DatabaseConnection:
         self.connection.close()
 
     def saveSensorData(self,sensorName,  sensorData, momentOfReading, dateOfReading):
-        #self.cursor.execute("INSERT INTO sensorA (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, currentdate, currenttime, device))
-               
-        #self.connection.commit()
+        self.cursor.execute("INSERT INTO sensorA (temperature, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, dateOfReading, momentOfReading, sensorName))
+        self.connection.commit()
         print("Saving sensor data...",sensorName,  sensorData, momentOfReading,dateOfReading)
     
     def saveFanData(self, sensorData, momentOfReading,dateOfReading):
-        #self.cursor.execute("INSERT INTO fanRPM (fanspeed, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, currentdate, momentOfReading, 'fan'))
-               
+        self.cursor.execute("INSERT INTO fanRPM (fanspeed, currentdate, currenttime, device) VALUES (?, ?, ?, ?)",(sensorData, dateOfReading, momentOfReading, 'fan'))
+        self.connection.commit()               
         print("Saving fan data...", sensorData, momentOfReading,dateOfReading)
            
     def readSensorData(self,sensorName):
