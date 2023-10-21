@@ -7,24 +7,48 @@ from database_connection import DatabaseConnection
 class Project:
   # class attribute
   startTime = 0
+  sensors = []
+  fans = []
+  databaseConnection = None
+  active = False
 
   # constructor
   def __init__(self):
     self.starTime = time.time()
-
+    sensorA = Sensor()
+    self.sensors.append(sensorA)
+    sensorB = Sensor()
+    self.sensors.append(sensorB)
+    fanA = Fan()
+    self.fans.append(fanA)
+  
   def startSensorSession(self):
     print("Starting sensor session...")
-    sensor = Sensor()
-    fan = Fan()
-    currentDatabaseConnection = DatabaseConnection("sensordata.db")
-    currentDatabaseConnection.saveSensorData("test")
-    currentDatabaseConnection.readSensorData()
-    sensor.startReading()
-    fan.startSpinning()
-    sensor.stopReading()
-    fan.stopSpinning()
+    #currentDatabaseConnection = DatabaseConnection("sensordata.db")
+    self.sensors[0].startReading()
+    self.sensors[1].startReading()
+    self.fans[0].startSpinning()
+    
+    self.active = True
+
+    while self.active:
+      time.sleep(1)
+      print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
+      print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
+      print("Fan: " + str(self.fans[0].getCurrentRPM()))
+      #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue())
+      #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue())
+      #currentDatabaseConnection.saveFanData("test")
+      if(self.sensors[0].getCurrentValue() > 50):
+        self.fans[0].increaseRPM(1000)
+      if(self.sensors[0].getCurrentValue() < 50):
+        self.fans[0].decreaseRPM(1000)
 
   def stopSensorSession(self):
+    self.active = False
+    self.sensors[0].stopReading()
+    self.sensors[1].stopReading()
+    self.fans[0].stopSpinning()
     print("stopped sensor session...")
 
 

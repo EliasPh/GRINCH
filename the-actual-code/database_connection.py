@@ -13,9 +13,16 @@ class DatabaseConnection:
         self.connection.commit()
         self.connection.close()
 
-    def saveSensorData(self, sensorData):
-        print("Saving sensor data...", sensorData)
+    def saveSensorData(self,sensorName,  sensorData):
+        print("Saving sensor data...",sensorName,  sensorData)
+    
+    def saveFanData(self, sensorData):
+        print("Saving fan data...", sensorData)
            
-    def readSensorData(self):
+    def readSensorData(self,sensorName):
         print("Reading sensor data...")
         return 19812309
+    
+    def readFanData(self):
+        print("Reading fan data...")
+        return 11111    

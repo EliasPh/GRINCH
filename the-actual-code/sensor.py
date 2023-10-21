@@ -1,6 +1,6 @@
 
 import time
-
+import random
 
 class Sensor:
 
@@ -23,3 +23,5 @@ class Sensor:
   def getCurrentValue(self):
     return self.currentValue
 
+  def readGPIO():
+    return random.choice(1, 100)

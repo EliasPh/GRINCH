@@ -98,8 +98,9 @@ then enter the following
 ```
 SQLite version 3.37.2 2022-01-06 13:25:41
 Enter ".help" for usage hints.
-sqlite> CREATE TABLE dhtsensorreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
-sqlite> CREATE TABLE fanspeedreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, fanspeed NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
+sqlite> CREATE TABLE sensorA(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
+sqlite> CREATE TABLE sensorB(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
+sqlite> CREATE TABLE fanRPM(id INTEGER PRIMARY KEY AUTOINCREMENT, fanspeed NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
 sqlite> COMMIT; -> this might fail, dont worry
 sqlite> .quit
 ```

@@ -8,6 +8,9 @@ app = Flask(__name__)
 # Configure the Flask Webserver's Routes
 # The function that is called when a user visits a specific route must be written directly below the route for now
 
+currentProject = None
+
+
 # starting page
 @app.route("/")
 def index():
@@ -23,15 +26,21 @@ def index():
 # this route triggers a new session and is called by a button click
 @app.route("/startsession")
 def startSensorSession():
-    currentProject = Project()
     currentProject.startSensorSession()
     templateData = {
       'project_running'  : 'yes',
       }
     return render_template('index.html', **templateData)
-# the starting page
 
+@app.route("/stopsession")
+def stopSensorSession():
+    currentProject.stopSensorSession()
+    templateData = {
+      'project_running'  : 'no',
+      }
+    return render_template('index.html', **templateData)
 
 
 if __name__ == "__main__":
+   currentProject = Project()
    app.run(host='0.0.0.0', port=80, debug=True)
