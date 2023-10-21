@@ -40,7 +40,7 @@ class Project:
                  self.fans[0].decreaseSpeed(i)
             time.sleep(0.01)
       
-      time.sleep(1)
+      
     # while self.active:
     #   time.sleep(1)
     #   print("----------------------")
