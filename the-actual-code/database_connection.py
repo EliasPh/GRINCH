@@ -47,4 +47,6 @@ class DatabaseConnection:
     
     def readFanData(self):
         print("Reading fan data...")
-        return 11111    
+        self.cursor.execute("SELECT * FROM fan")
+        data = self.cursor.fetchall()
+        return data  
