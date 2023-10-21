@@ -20,7 +20,7 @@ class Sensor:
       print("GPIO 4 selected")
     else:
       self.device = adafruit_dht.DHT22(board.D3)
-      print("GPIO 4 selected")
+      print("GPIO 3 selected")
   # methods
 
   

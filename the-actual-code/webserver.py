@@ -43,4 +43,4 @@ def stopSensorSession():
 
 if __name__ == "__main__":
    currentProject = Project()
-   app.run(host='0.0.0.0', port=1337, debug=True)
+   app.run(host='0.0.0.0', port=1337)
