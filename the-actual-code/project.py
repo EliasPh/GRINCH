@@ -26,6 +26,7 @@ class Project:
   def startSensorSession(self):
     print("Starting sensor session...")
     currentDatabaseConnection = DatabaseConnection("sensordata.db")
+    currentDatabaseConnection.connect()
     self.active = True
     # self.fans[0].startSpinning()
          
