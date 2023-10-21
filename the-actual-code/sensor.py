@@ -14,10 +14,10 @@ class Sensor:
     self.starTime = time.time()
 
   # methods
-  def startReading():
+  def startReading(self):
     print("Reading started")
   
-  def stopReading():
+  def stopReading(self):
     print("Reading stopped")
   
   def getCurrentValue(self):

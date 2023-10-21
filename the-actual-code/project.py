@@ -12,7 +12,7 @@ class Project:
   def __init__(self):
     self.starTime = time.time()
 
-  def startSensorSession():
+  def startSensorSession(self):
     print("Starting sensor session...")
     sensor = Sensor()
     fan = Fan()
@@ -24,7 +24,7 @@ class Project:
     sensor.stopReading()
     fan.stopSpinning()
 
-  def stopSensorSession():
+  def stopSensorSession(self):
     print("stopped sensor session...")
 
 

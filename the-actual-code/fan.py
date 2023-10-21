@@ -10,10 +10,10 @@ class Fan:
     self.currentRPM = 900
   
   # methods
-  def startSpinning():
+  def startSpinning(self):
     print("Spinning started")
   
-  def stopSpinning():
+  def stopSpinning(self):
     print("Spinning stopped")
   
   def increaseRPM(self, newRPM):
