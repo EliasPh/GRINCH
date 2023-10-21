@@ -8,31 +8,28 @@
       <p>You need to refresh this page to see update the data</p>
       <hr>
       {{ project_running }}
-      <table>
-         <thead>
-         <tr>
-            <th>Date</th>
-            <th>Sensor A</th>
-            <th>Sensor B</th>
-            <th>Fan</th>
-         </tr>
-         </thead>
-       
-         <tbody>
-            {% for group in data %}
-                {% for row in group %}
+         <table>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Sensor A Value</th>
+                    <th>Sensor B Value</th>
+                    <th>Fan Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
                     <tr>
-                        <td>{{ row[0] }}</td>
-                        <td>{{ row[1] }}</td>
-                        <td>{{ row[2] }}</td>
-                        <td>{{ row[3] }}</td>
-                        <td>{{ row[4] }}</td>
+                        <td>{{ row[0] }}</td> <!-- Date -->
+                        <td>{{ row[1] }}</td> <!-- Time -->
+                        <td>{{ row[2] }}</td> <!-- Sensor A Value -->
+                        <td>{{ row[3] }}</td> <!-- Sensor B Value -->
+                        <td>{{ row[4] }}</td> <!-- Fan Value -->
                     </tr>
                 {% endfor %}
-            {% endfor %}
-         </tbody>
-      
-      </table>
+            </tbody>
+        </table>
       
 
 

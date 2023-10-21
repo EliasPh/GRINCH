@@ -50,3 +50,13 @@ class DatabaseConnection:
         self.cursor.execute("SELECT * FROM fan")
         data = self.cursor.fetchall()
         return data  
+    
+    def getAllData(self):
+        self.cursor.execute("""
+            SELECT s1.currentdate, s1.currenttime, s1.temperature AS sensorAvalue, s2.temperature AS sensorBvalue, f.fanspeed AS fanvalue
+            FROM sensora AS s1
+            JOIN sensorb AS s2 ON s1.currentdate = s2.currentdate AND s1.currenttime = s2.currenttime
+            JOIN fan AS f ON s1.currentdate = f.currentdate AND s1.currenttime = f.currenttime;
+        """)
+        data = self.cursor.fetchall()
+        return data  

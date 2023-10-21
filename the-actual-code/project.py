@@ -57,10 +57,8 @@ class Project:
   def fetchAllDBData(self):
     currentDatabaseConnection = DatabaseConnection("sensordata.db")
     currentDatabaseConnection.connect()
-    sensorAData = currentDatabaseConnection.readSensorAData()
-    sensorBData = currentDatabaseConnection.readSensorBData()
-    fanData = currentDatabaseConnection.readFanData()
-    return sensorAData, sensorBData, fanData
+    data = currentDatabaseConnection.getAllData()
+    return data
 
 
 # The code below will only run if this file is run directly
