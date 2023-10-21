@@ -15,3 +15,7 @@ this is the starting point of your code. Here we manage the functions for sensor
 
 # What does webserver.py do?
 this is the webserver. here is also code that calls functions from project-manager
+
+
+# Python Versio?
+python 3.9.2

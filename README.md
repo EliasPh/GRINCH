@@ -54,6 +54,7 @@ https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/1
 ### Database
 https://www.pythonforthelab.com/blog/storing-data-with-sqlite/
 https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/
+https://pimylifeup.com/raspberry-pi-sqlite/
 ### DC Fans
 https://www.digikey.com/en/maker/tutorials/2019/how-to-control-a-dc-fan-using-the-raspberry-pi
 ### Sensors
@@ -76,9 +77,41 @@ https://www.raspberrypi.com/software/
 
 
 
-# Configure your PI
-1. install python3
+# 0) Configure your PI
+0. sudo apt update
+1. install python3 if not already preinstalled
 2. install sqlite3
+
+## 1) clone the repo
+git clone https://github.com/EliasPh/GRINCH.git
+cd GRINCH
+
+## A) Install the Database
+1. sudo apt-get install sqlite3
+you can ignore:
+`perl: warning: Setting locale failed. perl: warning: Please check that your locale settings:...`
+
+2. create your database
+enter `sqlite3 sensordata.db` 
+then enter the following
+
+```
+SQLite version 3.37.2 2022-01-06 13:25:41
+Enter ".help" for usage hints.
+sqlite> CREATE TABLE dhtsensorreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, temperature NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
+sqlite> CREATE TABLE fanspeedreadings(id INTEGER PRIMARY KEY AUTOINCREMENT, fanspeed NUMERIC, currentdate DATE, currenttime TIME, device TEXT);
+sqlite> COMMIT;
+sqlite> .quit
+```
+you will find the file sensordata.db in your current directory
+
+
+
+## A) Install Flask
+`> pip3 install flask`
+
+
+
 
 
 ## Things you may have to think about
