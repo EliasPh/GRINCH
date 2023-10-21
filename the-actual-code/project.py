@@ -16,51 +16,38 @@ class Project:
   # constructor
   def __init__(self):
     self.starTime = time.time()
-    # sensorA = Sensor(4)
-    # self.sensors.append(sensorA)
-    # sensorB = Sensor(3)
-    # self.sensors.append(sensorB)
-    fanA = Fan()
-    self.fans.append(fanA)
+    sensorA = Sensor(4)
+    self.sensors.append(sensorA)
+    sensorB = Sensor(3)
+    self.sensors.append(sensorB)
+    # fanA = Fan()
+    # self.fans.append(fanA)
   
   def startSensorSession(self):
     print("Starting sensor session...")
     #currentDatabaseConnection = DatabaseConnection("sensordata.db")
     self.active = True
-    self.fans[0].startSpinning()
-    
-
+    # self.fans[0].startSpinning()
+         
     while self.active:
-      while True:
-        for i in range(100):
-            # PWM LED up and down
-            if i < 50:
-                self.fans[0].increaseSpeed(i)
-            else:
-                 self.fans[0].decreaseSpeed(i)
-            time.sleep(1)
-      
-      
-    # while self.active:
-    #   time.sleep(1)
-    #   print("----------------------")
-      
-    #   # print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
-    #   # print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
-    #   print("Fan: " + str(self.fans[0].getCurrentSpeed()))
-    #     #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
-    #     #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
-    #     #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
-    #   # if(self.sensors[0].getCurrentValue() > 19):
-    #   #   self.fans[0].increaseSpeed(5)
-    #   # if(self.sensors[0].getCurrentValue() < 18):
-    #   #   self.fans[0].decreaseSpeed(5) 
+      time.sleep(1)
+      print("----------------------")      
+      print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
+      print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
+      # print("Fan: " + str(self.fans[0].getCurrentSpeed()))
+        #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
+        #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
+        #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
+      # if(self.sensors[0].getCurrentValue() > 19):
+      #   self.fans[0].increaseSpeed(5)
+      # if(self.sensors[0].getCurrentValue() < 18):
+      #   self.fans[0].decreaseSpeed(5) 
 
   def stopSensorSession(self):
     self.active = False
     self.sensors[0].stopReading()
     self.sensors[1].stopReading()
-    self.fans[0].stopSpinning()
+    # self.fans[0].stopSpinning()
     print("stopped sensor session...")
 
 
