@@ -1,2 +1,2 @@
 # GRINCH
-GPIO Raspberry INterface for Climate and Heating
+**G**PIO **R**aspberry **IN**terface for **C**limate and **H**eating
