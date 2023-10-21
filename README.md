@@ -118,7 +118,7 @@ Requirement already satisfied: flask in /usr/lib/python3/dist-packages (1.1.2)
 ```
 
 ## How to start the server
-> python "path to where you cloned the repo/GRINCH/the-actial-code/webserver/webserver.py
+> python "path to where you cloned the repo/GRINCH/the-actial-code/webserver.py
 
 
 
