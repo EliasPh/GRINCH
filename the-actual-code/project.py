@@ -15,9 +15,9 @@ class Project:
   # constructor
   def __init__(self):
     self.starTime = time.time()
-    sensorA = Sensor()
+    sensorA = Sensor(4)
     self.sensors.append(sensorA)
-    sensorB = Sensor()
+    sensorB = Sensor(7)
     self.sensors.append(sensorB)
     fanA = Fan()
     self.fans.append(fanA)

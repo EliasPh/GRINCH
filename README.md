@@ -122,6 +122,21 @@ Requirement already satisfied: flask in /usr/lib/python3/dist-packages (1.1.2)
 > python "path to where you cloned the repo/GRINCH/the-actial-code/webserver.py
 
 
+### Install the sensors software
+> pip3 install Adafruit_DHT
+result
+
+```Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
+Collecting Adafruit_DHT
+  Downloading Adafruit_DHT-1.4.0.tar.gz (15 kB)
+Building wheels for collected packages: Adafruit-DHT
+  ....
+Successfully built Adafruit-DHT
+Installing collected packages: Adafruit-DHT
+Successfully installed Adafruit-DHT-1.4.0
+```
+
+
 
 ## Things you may have to think about
 - The fan you will use may be 12V or 5V and can have different amps. If you are powering the fan directly from the raspberry, you should read up if you can fry your raspberry with a 12V fan. Brush up your electrotechnical knowledge and/or google something like "raspberry pi 12V 0.12A fan"
