@@ -1,4 +1,7 @@
-import RPi.GPIO as GPIO
+import board
+import pwmio
+
+
 class Fan:
 
   
@@ -10,16 +13,6 @@ class Fan:
   PWM_FREQ = 25           # [kHz] 25kHz for Noctua PWM control TODO: check if this is correct
   device = None
 
-###
-###p = GPIO.PWM(channel, frequency)
-###To start PWM:
-###p.start(dc)   # where dc is the duty cycle (0.0 <= dc <= 100.0)
-###To change the frequency:
-###p.ChangeFrequency(freq)   # where freq is the new frequency in Hz
-###To change the duty cycle:
-###p.ChangeDutyCycle(dc)  # where 0.0 <= dc <= 100.0
-###To stop PWM:
-###p.stop()
 
 
 
@@ -27,29 +20,26 @@ class Fan:
 
   # constructor
   def __init__(self):
-    GPIO.setmode(GPIO.BOARD)
     self.currentSpeed = 50
-    GPIO.setup(self.FAN_PIN, GPIO.OUT, initial=GPIO.LOW) # ValueError: A different mode has already been set!
-    self.device = GPIO.PWM(self.FAN_PIN,self.PWM_FREQ)
+    self.device = pwmio.PWMOut(board.D13, frequency=5000, duty_cycle=0)
+
   
   # methods
   def startSpinning(self):
     print("Spinning started")
-    self.device.start(0)
   
   def stopSpinning(self):
     print("Spinning stopped")
-    self.device.stop()
-    GPIO.cleanup()
+    
   
-  def increaseSpeed(self, newSpeed):
-    self.currentSpeed = self.currentSpeed+newSpeed
-    self.device.ChangeDutyCycle(self.currentSpeed)
+  def increaseSpeed(self, i):
+    self.device.duty_cycle = int(i * 2 * 65535 / 100)
+    self.currentSpeed = self.device.duty_clcle
     print("Spinning increased to " + str(self.getCurrentSpeed()) + " Speed")
 
-  def decreaseSpeed(self, newSpeed):
-   self.currentSpeed = self.currentSpeed-newSpeed
-   self.device.ChangeDutyCycle(self.currentSpeed)
+  def decreaseSpeed(self, i):
+   self.device.duty_cycle = 65535 - int((i - 50) * 2 * 65535 / 100)
+   self.currentSpeed = self.device.duty_clcle
    print("Spinning decreased to " + str(self.getCurrentSpeed()) + " Speed")
 
   def getCurrentSpeed(self):
