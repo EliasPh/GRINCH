@@ -22,11 +22,12 @@ class Fan:
   def __init__(self):
     self.currentSpeed = 50
     self.device = pwmio.PWMOut(board.D5, frequency=5000, duty_cycle=0)
-    print(self.device)
+   
   
   # methods
   def startSpinning(self):
     print("Spinning started")
+    print(self.device)
   
   def stopSpinning(self):
     print("Spinning stopped")
