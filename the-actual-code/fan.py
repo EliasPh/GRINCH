@@ -1,6 +1,6 @@
 import board
 import pwmio
-
+from analogio import AnalogOut
 
 class Fan:
 
@@ -12,7 +12,7 @@ class Fan:
   WAIT_TIME = 1           # [s] Time to wait between each refresh
   PWM_FREQ = 25           # [kHz] 25kHz for Noctua PWM control TODO: check if this is correct
   device = None
-
+  analog_out = None
 
 
 
@@ -22,6 +22,7 @@ class Fan:
   def __init__(self):
     self.currentSpeed = 50
     self.device = pwmio.PWMOut(board.D12)
+    self.analog_out = AnalogOut(board.A0)
     print(self.device.duty_cycle)
    
   
@@ -29,6 +30,11 @@ class Fan:
   def startSpinning(self):
     print("Spinning started")
     print(self.device)
+    while True:
+    # Count up from 0 to 65535, with 64 increment
+    # which ends up corresponding to the DAC's 10-bit range
+      for i in range(0, 65535, 64):
+          self.analog_out.value = i
   
   def stopSpinning(self):
     print("Spinning stopped")
