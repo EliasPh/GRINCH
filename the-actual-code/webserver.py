@@ -38,7 +38,7 @@ def startSensorSession():
 @app.route("/stopsession")
 def stopSensorSession():
     currentProject.stopSensorSession()
-    currentThread._stop()
+    threading.Event().set()
     templateData = {
       'project_running'  : 'no',
       }
