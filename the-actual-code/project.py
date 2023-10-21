@@ -15,10 +15,10 @@ class Project:
   # constructor
   def __init__(self):
     self.starTime = time.time()
-    sensorA = Sensor(4)
-    self.sensors.append(sensorA)
-    sensorB = Sensor(3)
-    self.sensors.append(sensorB)
+    # sensorA = Sensor(4)
+    # self.sensors.append(sensorA)
+    # sensorB = Sensor(3)
+    # self.sensors.append(sensorB)
     fanA = Fan()
     self.fans.append(fanA)
   
@@ -29,18 +29,19 @@ class Project:
     self.fans[0].startSpinning()
     
     while self.active:
-      time.sleep(1)
+      time.sleep(5)
       print("----------------------")
-      print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
-      print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
+      self.fans[0].increaseSpeed(5)
+      # print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
+      # print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       print("Fan: " + str(self.fans[0].getCurrentSpeed()))
-      #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
-      #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
-      #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
-      if(self.sensors[0].getCurrentValue() > 20):
-        self.fans[0].increaseSpeed(50)
-      if(self.sensors[0].getCurrentValue() < 18):
-        self.fans[0].decreaseSpeed(50) 
+        #currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), datetime.datetime.now())
+        #currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), datetime.datetime.now())
+        #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), datetime.datetime.now()
+      # if(self.sensors[0].getCurrentValue() > 19):
+      #   self.fans[0].increaseSpeed(5)
+      # if(self.sensors[0].getCurrentValue() < 18):
+      #   self.fans[0].decreaseSpeed(5) 
 
   def stopSensorSession(self):
     self.active = False
