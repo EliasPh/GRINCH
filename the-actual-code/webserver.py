@@ -47,8 +47,11 @@ def renderData():
     templateData = {
       'project_running'  : 'yes',
       'datapoints':[{ 'time': '2020-12-12 12:12', 'sensorA': 12, 'sensorB': 12, 'fan': 12 }, { 'time': '2020-05-05 12:12', 'sensorA': 12, 'sensorB': 12, 'fan': 12 }]
-      
       }
+    
+    dataFromDB = currentProject.fetchAllDBData()
+    print(dataFromDB)
+
     return render_template('data.html', **templateData)
 
 if __name__ == "__main__":

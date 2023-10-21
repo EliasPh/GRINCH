@@ -33,9 +33,17 @@ class DatabaseConnection:
         self.connection.commit()               
         print("Saving fan data...", sensorData, momentOfReading,dateOfReading)
            
-    def readSensorData(self,sensorName):
-        print("Reading sensor data...")
-        return 19812309
+    def readSensorAData(self):
+        print("Reading sensor A data...")
+        self.cursor.execute("SELECT * FROM sensora")
+        data = self.cursor.fetchall()
+        return data
+    
+    def readSensorBData(self):
+        print("Reading sensor B data...")
+        self.cursor.execute("SELECT * FROM sensorb")
+        data = self.cursor.fetchall()
+        return data
     
     def readFanData(self):
         print("Reading fan data...")
