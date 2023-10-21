@@ -123,18 +123,10 @@ Requirement already satisfied: flask in /usr/lib/python3/dist-packages (1.1.2)
 
 
 ### Install the sensors software
-> pip3 install Adafruit_DHT
-result
 
-```Looking in indexes: https://pypi.org/simple, https://www.piwheels.org/simple
-Collecting Adafruit_DHT
-  Downloading Adafruit_DHT-1.4.0.tar.gz (15 kB)
-Building wheels for collected packages: Adafruit-DHT
-  ....
-Successfully built Adafruit-DHT
-Installing collected packages: Adafruit-DHT
-Successfully installed Adafruit-DHT-1.4.0
-```
+> pip3 install adafruit-circuitpython-dht
+!!! Adafruit_DHT and/or Adafruit-DHT is not supported anymore !!!
+
 
 
 
