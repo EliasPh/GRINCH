@@ -36,7 +36,7 @@ class Project:
       print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       # print("Fan: " + str(self.fans[0].getCurrentSpeed()))
       dateOfReating = datetime.datetime.now().date()     
-      momentOfReading = datetime.now().strftime("%H:%M:%S")
+      momentOfReading = datetime.datetime.now().strftime("%H:%M:%S")
       currentDatabaseConnection.saveSensorData("sensorA", self.sensors[0].getCurrentValue(), momentOfReading, dateOfReating)
       currentDatabaseConnection.saveSensorData("sensorB", self.sensors[1].getCurrentValue(), momentOfReading, dateOfReating)
       #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), momentOfReading)
