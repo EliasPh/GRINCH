@@ -21,7 +21,7 @@ class Fan:
   # constructor
   def __init__(self):
     self.currentSpeed = 50
-    self.device = pwmio.PWMOut(board.D13, frequency=5000, duty_cycle=0)
+    self.device = pwmio.PWMOut(board.D5, frequency=5000, duty_cycle=0)
 
   
   # methods
