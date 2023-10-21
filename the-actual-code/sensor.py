@@ -24,4 +24,4 @@ class Sensor:
     return self.readGPIO()
 
   def readGPIO(self):
-    return random.choice(1, 100)
+    return random.randint(0, 100)
