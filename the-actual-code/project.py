@@ -30,15 +30,15 @@ class Project:
     self.fans[0].startSpinning()
     
 
-    # while self.active:
-    #   while True:
-    #     for i in range(100):
-    #         # PWM LED up and down
-    #         if i < 50:
-    #             self.fans[0].increaseSpeed(i)
-    #         else:
-    #              self.fans[0].decreaseSpeed(i)
-    #         time.sleep(1)
+    while self.active:
+      while True:
+        for i in range(100):
+            # PWM LED up and down
+            if i < 50:
+                self.fans[0].increaseSpeed(i)
+            else:
+                 self.fans[0].decreaseSpeed(i)
+            time.sleep(1)
       
       
     # while self.active:
