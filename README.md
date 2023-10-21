@@ -54,8 +54,8 @@ https://projects.raspberrypi.org/en/projects/python-web-server-with-flask/1
 ### Database
 https://www.pythonforthelab.com/blog/storing-data-with-sqlite/
 https://randomnerdtutorials.com/sqlite-database-on-a-raspberry-pi/
-
-
+### DC Fans
+https://www.digikey.com/en/maker/tutorials/2019/how-to-control-a-dc-fan-using-the-raspberry-pi
 
 ## How to set up your Raspberry PI
 0. If you got a raspberry pi from your university, it may already have an OS installed. 
