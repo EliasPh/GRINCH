@@ -15,7 +15,7 @@ class Sensor:
     self.currentValue = 0
     self.starTime = time.time()
     self.gipo = selectedGPIO
-    if(self.gpio == 4):
+    if(selectedGPIO == 4):
       print("GPIO 4 selected")
       self.device = adafruit_dht.DHT22(board.D4)
     else:
