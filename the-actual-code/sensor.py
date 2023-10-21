@@ -23,5 +23,5 @@ class Sensor:
   def getCurrentValue(self):
     return self.readGPIO()
 
-  def readGPIO():
+  def readGPIO(self):
     return random.choice(1, 100)
