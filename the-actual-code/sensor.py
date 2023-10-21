@@ -28,7 +28,6 @@ class Sensor:
     return self.readGPIO()
 
   def readGPIO(self):
-    print("Reading GPIO")
     try:
        return self.device.temperature
     except:
