@@ -32,7 +32,7 @@ class Project:
     while self.active:
       time.sleep(1)
       print("----------------------")
-      self.fans[0].decreaseSpeed(5+random.randint(0, 10))
+      self.fans[0].decreaseSpeed(50+random.randint(0, 5))
       # print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
       # print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
       print("Fan: " + str(self.fans[0].getCurrentSpeed()))
