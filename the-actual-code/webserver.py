@@ -15,7 +15,8 @@ def index():
    timeString = now.strftime("%Y-%m-%d %H:%M")
    templateData = {
       'title' : 'HELLO!',
-      'time': timeString
+      'time': timeString,
+      'project_running'  : 'no',
       }
    return render_template('index.html', **templateData)
 
@@ -24,6 +25,10 @@ def index():
 def startSensorSession():
     currentProject = Project()
     currentProject.startSensorSession()
+    templateData = {
+      'project_running'  : 'yes',
+      }
+    return render_template('index.html', **templateData)
 # the starting page
 
 
