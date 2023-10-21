@@ -7,7 +7,7 @@ class Fan:
   
   # constructor
   def __init__(self):
-    self.currentRPM = 900
+    self.currentRPM = 500
   
   # methods
   def startSpinning(self):
@@ -17,11 +17,12 @@ class Fan:
     print("Spinning stopped")
   
   def increaseRPM(self, newRPM):
-    self.currentRPM = newRPM
-    print("Spinning increased to " + str(newRPM) + " RPM")
+    self.currentRPM = self.currentRPM+newRPM
+    print("Spinning increased to " + str(self.getCurrentRPM()) + " RPM")
 
   def decreaseRPM(self, newRPM):
-   print("Spinning decreased to " + str(newRPM) + " RPM")
+   self.currentRPM = self.currentRPM-newRPM
+   print("Spinning decreased to " + str(self.getCurrentRPM()) + " RPM")
 
   def getCurrentRPM(self):
     return self.currentRPM

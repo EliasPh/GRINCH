@@ -21,7 +21,7 @@ class Sensor:
     print("Reading stopped")
   
   def getCurrentValue(self):
-    return self.currentValue
+    return self.readGPIO()
 
   def readGPIO():
     return random.choice(1, 100)
