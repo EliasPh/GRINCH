@@ -10,7 +10,7 @@ app = Flask(__name__)
 # The function that is called when a user visits a specific route must be written directly below the route for now
 
 currentProject = None
-currentThread = None
+currentBackgroundThread = None
 
 # starting page
 @app.route("/")
@@ -28,9 +28,9 @@ def index():
 @app.route("/startsession")
 def startSensorSession():
     # Start the sensor session in a separate thread
-    session_thread = threading.Thread(target=currentProject.startSensorSession)
-    session_thread.daemon = True  # This will allow the thread to exit when the main application exits
-    session_thread.start()
+    currentBackgroundThread = threading.Thread(target=currentProject.startSensorSession)
+    currentBackgroundThread.daemon = True  # This will allow the thread to exit when the main application exits
+    currentBackgroundThread.start()
 
     templateData = {
       'project_running'  : 'yes',
@@ -39,15 +39,20 @@ def startSensorSession():
 
 @app.route("/stopsession")
 def stopSensorSession():
-    currentProject.stopSensorSession()
-    templateData = {
-      'project_running'  : 'no',
-      }
-    return render_template('index.html', **templateData)
+   if currentBackgroundThread:
+      currentProject.stopSensorSession()
+      currentBackgroundThread.join()  # Wait for the thread to finish
+      currentBackgroundThread = None
+
+   templateData = {
+   'project_running'  : 'no',
+   }
+   return render_template('index.html', **templateData)
 
 @app.route("/view/data")
 def renderData():
    dataFromDB = currentProject.fetchAllDBData()
+   
    templateData = {
       'project_running'  : 'yes',
       'data':dataFromDB
