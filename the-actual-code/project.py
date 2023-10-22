@@ -33,6 +33,8 @@ class Project:
   def __init__(self):
     """
     Initializes the sensors and fans.
+    You can add more sensors and fans here.
+    If you need to create a new class e.g. heating-device.py, you can initialize it here. But you have to create the code for it yourself. This will work in a similar way to the sensor or fan class. 
     """
     self.starTime = time.time()
     sensorA = Sensor(4)
@@ -42,6 +44,9 @@ class Project:
     fanA = Fan()
     self.fans.append(fanA)
   
+  """
+  !!! -> BELOW IS THE MAIN LOGIC OF THE PROJECT <- !!!
+  """
   def startSensorSession(self):
     """
     Starts the sensor session and saves the data to the database.
@@ -51,9 +56,14 @@ class Project:
     currentDatabaseConnection.connect()
     self.active = True
     # self.fans[0].startSpinning()
-         
+    """
+    The code below will run as long as the sensor session is active.
+    """
     while self.active:
-     
+
+      """
+      Here the sensor values are read and the time of reading is taken.
+      """
       dateOfReading = datetime.datetime.now().date()     
       momentOfReading = datetime.datetime.now().strftime("%H:%M:%S")
       sensorAValue = self.sensors[0].getCurrentValue()
@@ -62,16 +72,25 @@ class Project:
 
       print("-->", dateOfReading,":",momentOfReading, " Sensor A: " + str(sensorAValue)," Sensor B: " + str(sensorBValue)," Fan: " + str(fanValue))
 
+      """
+      Here the already read values are saved to the database.
+      """
       currentDatabaseConnection.saveSensorDataA("sensorA", sensorAValue, momentOfReading, dateOfReading)
       currentDatabaseConnection.saveSensorDataB("sensorB", sensorBValue, momentOfReading, dateOfReading)
       currentDatabaseConnection.saveFanData(fanValue, momentOfReading,dateOfReading)
      
+      """
+      Here you can add your own logic to control the fan speed.
+      """
       if(self.sensors[0].getCurrentValue() > 19):
         self.fans[0].increaseSpeed(5)
 
       if(self.sensors[0].getCurrentValue() < 18):
         self.fans[0].decreaseSpeed(5) 
 
+      """
+      Here the program waits for 1 second before reading the sensors again.
+      """
       time.sleep(1)
 
   def stopSensorSession(self):

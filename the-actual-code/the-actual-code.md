@@ -23,7 +23,7 @@ Overall, this code provides a simple class for controlling a fan using PWM signa
 # What does sensor.py do?
 SpeedThis is a Python class called `Sensor` that represents a sensor that reads temperature from a DHT22 sensor. The class uses the `adafruit_dht` library to read temperature values from the sensor and the `board` library to access the GPIO pins on the Raspberry Pi. The class has several attributes and methods that allow it to read temperature values from the sensor and stop reading from the sensor.
 
-The `Sensor` class has four attributes: `currentValue`, `startTime`, `gpio`, and `device`. The `currentValue` attribute stores the current temperature value read by the sensor. The `startTime` attribute stores the time when the sensor was started. The `gpio` attribute stores the GPIO pin number used by the sensor. The `device` attribute stores the `adafruit_dht.DHT22` object used by the sensor.
+The `Sensor` class has four attributes: `startTime`, `gpio`, and `device`. The `startTime` attribute stores the time when the sensor was started. The `gpio` attribute stores the GPIO pin number used by the sensor. The `device` attribute stores the `adafruit_dht.DHT22` object used by the sensor.
 
 The `Sensor` class has a constructor that initializes a new instance of the class. The constructor takes a single argument, `selectedGPIO`, which is the GPIO pin number to be used by the sensor. The constructor initializes the `currentValue` attribute to 0, the `startTime` attribute to the current time using the `time.time()` method, and the `gpio` attribute to the `selectedGPIO` argument. The constructor also initializes the `device` attribute to a `adafruit_dht.DHT22` object using the `board` library and the `selectedGPIO` argument.
 
