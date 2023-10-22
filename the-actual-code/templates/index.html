@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-   <head>
-      <title>{{ title }}</title>
-   </head>
-   <body>
-      <h1>Hello, World!</h1>
-      <h2>The date and time on the server is: {{ time }}</h2>
+<html>
+<head>
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Raspberry Pi Head Sensor and Ventilator Reading</h1>
+        <h2>The date and time on the server is: {{ time }}</h2>
 
-      <hr>
-      {{ project_running }}
-      <hr>
-      <a href="startsession">START A SESSION</a>  
-      <hr>
-      <a href="stopsession">STOP A SESSION</a>  
-      <hr>
-      <a href="view/data">view data</a>
-   </body>
+        <hr>
+        <p>Welcome to the Raspberry Pi sensor and ventilator data monitoring system. 
+         This system provides data on head sensor and ventilator readings.</p>
+
+        <hr>
+        <a href="startsession">START A SESSION</a>
+        <hr>
+        <a href="stopsession">STOP A SESSION</a>
+        <hr>
+        <a href="view/data">View Data</a>
+    </div>
+</body>
 </html>

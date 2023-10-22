@@ -18,7 +18,7 @@ def index():
    now = datetime.datetime.now()
    timeString = now.strftime("%Y-%m-%d %H:%M")
    templateData = {
-      'title' : 'HELLO!',
+      'title' : 'Uni Projekt A',
       'time': timeString,
       'project_running'  : 'no',
       }
@@ -27,7 +27,7 @@ def index():
 # this route triggers a new session and is called by a button click
 @app.route("/startsession")
 def startSensorSession():
-    currentThread=threading.Thread(target=currentProject.startSensorSession())
+    currentProject.startSensorSession()
     templateData = {
       'project_running'  : 'yes',
       }
@@ -36,7 +36,6 @@ def startSensorSession():
 @app.route("/stopsession")
 def stopSensorSession():
     currentProject.stopSensorSession()
-    threading.Event().set()
     templateData = {
       'project_running'  : 'no',
       }
