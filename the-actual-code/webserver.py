@@ -32,8 +32,11 @@ def startSensorSession():
     currentBackgroundThread = threading.Thread(target=currentProject.startSensorSession)
     currentBackgroundThread.daemon = True  # This will allow the thread to exit when the main application exits
     currentBackgroundThread.start()
-
+    now = datetime.datetime.now()
+    timeString = now.strftime("%Y-%m-%d %H:%M")
     templateData = {
+      'title' : 'Uni Projekt A',
+      'time': timeString,
       'project_running'  : 'yes',
       }
     return render_template('index.html', **templateData)
