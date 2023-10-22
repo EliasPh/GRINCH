@@ -48,8 +48,11 @@ def stopSensorSession():
       currentProject.stopSensorSession()
       currentBackgroundThread.join()  # Wait for the thread to finish
       currentBackgroundThread = None
-
+   now = datetime.datetime.now()
+   timeString = now.strftime("%Y-%m-%d %H:%M")
    templateData = {
+   'title' : 'Uni Projekt A',
+   'time': timeString,
    'project_running'  : 'no',
    }
    return render_template('index.html', **templateData)
@@ -58,8 +61,12 @@ def stopSensorSession():
 def renderData():
    dataFromDB = currentProject.fetchAllDBData()
    
+   now = datetime.datetime.now()
+   timeString = now.strftime("%Y-%m-%d %H:%M")
    templateData = {
-      'project_running'  : 'yes',
+   'title' : 'Uni Projekt A',
+   'time': timeString,
+      'project_running'  : 'check main page',
       'data':dataFromDB
       }
    return render_template('data.html', **templateData)
