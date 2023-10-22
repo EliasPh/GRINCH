@@ -64,7 +64,7 @@ class Project:
 
       currentDatabaseConnection.saveSensorDataA("sensorA", sensorAValue, momentOfReading, dateOfReading)
       currentDatabaseConnection.saveSensorDataB("sensorB", sensorBValue, momentOfReading, dateOfReading)
-      currentDatabaseConnection.saveFanData(fanValue, momentOfReading)
+      currentDatabaseConnection.saveFanData(fanValue, momentOfReading,dateOfReading)
      
       if(self.sensors[0].getCurrentValue() > 19):
         self.fans[0].increaseSpeed(5)
