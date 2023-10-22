@@ -1,5 +1,5 @@
 import datetime
-from flask import Flask, render_template
+from flask import Flask, render_template, send_file
 from project import Project
 import threading
 import csv
@@ -78,14 +78,14 @@ def renderData():
 def createCSV():
 
     dataFromDB = currentProject.fetchAllDBData()
-    
-    with open('output.csv', 'w', newline='') as f:
+    now = datetime.datetime.now()
+    timeString = now.strftime("%Y-%m-%d %H:%M")
+
+    with open('sensordata.csv', 'w', newline='') as f:
       writer = csv.writer(f)
       writer.writerow(['Date','Time', 'SensorA', 'SensorB', 'Fan'])
       writer.writerows(dataFromDB)
 
-    now = datetime.datetime.now()
-    timeString = now.strftime("%Y-%m-%d %H:%M")
     templateData = {
     'title' : 'Uni Projekt A',
     'time': timeString,
@@ -93,6 +93,13 @@ def createCSV():
        'data':dataFromDB
        }
     return render_template('data.html', **templateData)
+
+@app.route("downloadcsv")
+def downloadCSV():
+    return send_file('sensordata.csv',
+                     mimetype='text/csv',
+                     attachment_filename='sensordata.csv',
+                     as_attachment=True)
 
 
 if __name__ == "__main__":
