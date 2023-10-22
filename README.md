@@ -122,8 +122,8 @@ You will find the `sensordata.db` file in your current directory.
 ## Install Flask:
 - `pip3 install flask`
 
-## Install the Sensors Software - This is the most difficuilt part
-Make sure to read carefully. Adafruit has some small testing scripts. Run those too to check if your sensors are working at all before working on this projects code.
+## Install the GPIO Software - This is the most difficuilt part
+Make sure to read the tutorials carefully. Adafruit has some small testing scripts. Run those too to check if your sensors/GPIOs are working at all before working on this projects code.
 
 - Make sure to follow the Adafruit CircuitPython installation instructions: [Adafruit CircuitPython Installation Guide](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
 
