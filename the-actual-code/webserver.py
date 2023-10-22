@@ -1,9 +1,8 @@
-from flask import Flask, render_template
 import datetime
-
+from flask import Flask, render_template
 from project import Project
-
 import threading
+
 # Create a Flask Webserver
 app = Flask(__name__)
 # Configure the Flask Webserver's Routes
@@ -27,19 +26,22 @@ def index():
 # this route triggers a new session and is called by a button click
 @app.route("/startsession")
 def startSensorSession():
-    global currentBackgroundThread
-    # Start the sensor session in a separate thread
-    currentBackgroundThread = threading.Thread(target=currentProject.startSensorSession)
-    currentBackgroundThread.daemon = True  # This will allow the thread to exit when the main application exits
-    currentBackgroundThread.start()
-    now = datetime.datetime.now()
-    timeString = now.strftime("%Y-%m-%d %H:%M")
-    templateData = {
-      'title' : 'Uni Projekt A',
-      'time': timeString,
-      'project_running'  : 'yes',
-      }
-    return render_template('index.html', **templateData)
+      """
+      Starts a sensor session in a separate thread and returns the rendered index.html template with the current time and project status.
+      """
+      global currentBackgroundThread
+      # Start the sensor session in a separate thread
+      currentBackgroundThread = threading.Thread(target=currentProject.startSensorSession)
+      currentBackgroundThread.daemon = True  # This will allow the thread to exit when the main application exits
+      currentBackgroundThread.start()
+      now = datetime.datetime.now()
+      timeString = now.strftime("%Y-%m-%d %H:%M")
+      templateData = {
+         'title' : 'Uni Projekt A',
+         'time': timeString,
+         'project_running'  : 'yes',
+         }
+      return render_template('index.html', **templateData)
 
 @app.route("/stopsession")
 def stopSensorSession():

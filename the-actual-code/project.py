@@ -1,11 +1,27 @@
-
 import time
 import datetime
 from sensor import Sensor
 from fan import Fan
 from database_connection import DatabaseConnection
-import random
+
 class Project:
+  """
+  A class representing a project that collects data from sensors and saves it to a database.
+
+  Attributes:
+  - startTime (int): the start time of the project
+  - sensors (list): a list of Sensor objects
+  - fans (list): a list of Fan objects
+  - databaseConnection (DatabaseConnection): a DatabaseConnection object
+  - active (bool): a flag indicating whether the sensor session is active or not
+
+  Methods:
+  - __init__(): constructor method that initializes the sensors and fans
+  - startSensorSession(): starts the sensor session and saves the data to the database
+  - stopSensorSession(): stops the sensor session and stops the sensors from reading
+  - fetchAllDBData(): fetches all the data from the database
+  """
+
   # class attribute
   startTime = 0
   sensors = []
@@ -15,6 +31,9 @@ class Project:
 
   # constructor
   def __init__(self):
+    """
+    Initializes the sensors and fans.
+    """
     self.starTime = time.time()
     sensorA = Sensor(4)
     self.sensors.append(sensorA)
@@ -24,6 +43,9 @@ class Project:
     self.fans.append(fanA)
   
   def startSensorSession(self):
+    """
+    Starts the sensor session and saves the data to the database.
+    """
     print("Starting sensor session...")
     currentDatabaseConnection = DatabaseConnection("sensordata.db")
     currentDatabaseConnection.connect()
@@ -53,6 +75,9 @@ class Project:
       time.sleep(1)
 
   def stopSensorSession(self):
+    """
+    Stops the sensor session and stops the sensors from reading.
+    """
     self.active = False
     self.sensors[0].stopReading()
     self.sensors[1].stopReading()
@@ -60,6 +85,12 @@ class Project:
     print("stopped sensor session...")
 
   def fetchAllDBData(self):
+    """
+    Fetches all the data from the database.
+
+    Returns:
+    - data (list): a list of dictionaries containing the data from the database
+    """
     currentDatabaseConnection = DatabaseConnection("sensordata.db")
     currentDatabaseConnection.connect()
     data = currentDatabaseConnection.getAllData()
