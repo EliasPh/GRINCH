@@ -94,7 +94,7 @@ def createCSV():
        }
     return render_template('data.html', **templateData)
 
-@app.route("downloadcsv")
+@app.route("/downloadcsv")
 def downloadCSV():
     return send_file('sensordata.csv',
                      mimetype='text/csv',
