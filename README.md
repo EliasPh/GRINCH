@@ -21,6 +21,7 @@ A simple project to set up a Raspberry Pi for reading temperature sensors and co
 - [Install the Sensors Software](#install-the-sensors-software)
 - [How to Start the Server](#how-to-start-the-server)
 - [Read more about the actual code](#read-more-about-the-actual-code)
+- [What does the local homepage look like](#what-does-the-local-homepage-look-like)
 - [Things to Consider](#things-to-consider)
 - [Troubleshooting](#troubleshooting)
 
@@ -138,6 +139,17 @@ You can not mix the Adarfruit Library with the vanilla Raspberry PI GPIO Library
 ## Read more about the actual code
 The code is located in the "the-actual-code" directory. 
 Read more about it [here](the-actual-code/the-actual-code.md)
+
+
+## What does the local homepage look like:
+### Landingpage
+![Home View](images/mainview.png)
+### A running Session
+![A running session](images/runningsession.png)
+### The Data View
+![Data View](images/dataview.png)
+### An exported CSV
+![Exported CSV](images/csvdata.png)
 
 ## Things to Consider:
 - Check the voltage and amperage of your fan, as it may be different for 12V or 5V fans. Ensure that connecting a 12V fan directly to your Raspberry Pi won't damage it.
