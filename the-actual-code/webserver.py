@@ -27,6 +27,7 @@ def index():
 # this route triggers a new session and is called by a button click
 @app.route("/startsession")
 def startSensorSession():
+    global currentBackgroundThread
     # Start the sensor session in a separate thread
     currentBackgroundThread = threading.Thread(target=currentProject.startSensorSession)
     currentBackgroundThread.daemon = True  # This will allow the thread to exit when the main application exits
@@ -39,6 +40,7 @@ def startSensorSession():
 
 @app.route("/stopsession")
 def stopSensorSession():
+   global currentBackgroundThread
    if currentBackgroundThread:
       currentProject.stopSensorSession()
       currentBackgroundThread.join()  # Wait for the thread to finish
