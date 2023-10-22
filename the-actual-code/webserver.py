@@ -27,7 +27,11 @@ def index():
 # this route triggers a new session and is called by a button click
 @app.route("/startsession")
 def startSensorSession():
-    currentProject.startSensorSession()
+    # Start the sensor session in a separate thread
+    session_thread = threading.Thread(target=currentProject.startSensorSession)
+    session_thread.daemon = True  # This will allow the thread to exit when the main application exits
+    session_thread.start()
+
     templateData = {
       'project_running'  : 'yes',
       }
