@@ -81,7 +81,7 @@ def createCSV():
     now = datetime.datetime.now()
     timeString = now.strftime("%Y-%m-%d %H:%M")
 
-    with open('sensordata.csv', 'w', newline='') as f:
+    with open('the-actual-code/sensordata.csv', 'w', newline='') as f:
       writer = csv.writer(f)
       writer.writerow(['Date','Time', 'SensorA', 'SensorB', 'Fan'])
       writer.writerows(dataFromDB)
