@@ -20,8 +20,8 @@ class Project:
     self.sensors.append(sensorA)
     sensorB = Sensor(3)
     self.sensors.append(sensorB)
-    # fanA = Fan()
-    # self.fans.append(fanA)
+    fanA = Fan()
+    self.fans.append(fanA)
   
   def startSensorSession(self):
     print("Starting sensor session...")
@@ -31,21 +31,26 @@ class Project:
     # self.fans[0].startSpinning()
          
     while self.active:
-      time.sleep(1)
-      print("----------------------", datetime.datetime.now(), "----------------------")      
-      print("Sensor A: " + str(self.sensors[0].getCurrentValue()))
-      print("Sensor B: " + str(self.sensors[1].getCurrentValue()))
-      # print("Fan: " + str(self.fans[0].getCurrentSpeed()))
+     
       dateOfReading = datetime.datetime.now().date()     
       momentOfReading = datetime.datetime.now().strftime("%H:%M:%S")
-      currentDatabaseConnection.saveSensorDataA("sensorA", self.sensors[0].getCurrentValue(), momentOfReading, dateOfReading)
-      currentDatabaseConnection.saveSensorDataB("sensorB", self.sensors[1].getCurrentValue(), momentOfReading, dateOfReading)
-      #currentDatabaseConnection.saveFanData(self.fans[0].getCurrentRPM(), momentOfReading)
-      currentDatabaseConnection.saveFanData(12, momentOfReading,dateOfReading)
-      # if(self.sensors[0].getCurrentValue() > 19):
-      #   self.fans[0].increaseSpeed(5)
-      # if(self.sensors[0].getCurrentValue() < 18):
-      #   self.fans[0].decreaseSpeed(5) 
+      sensorAValue = self.sensors[0].getCurrentValue()
+      sensorBValue = self.sensors[1].getCurrentValue()
+      fanValue = self.fans[0].getCurrentSpeed()
+
+      print("-->", dateOfReading,":",momentOfReading, " Sensor A: " + str(sensorAValue)," Sensor B: " + str(sensorBValue)," Fan: " + str(fanValue))
+
+      currentDatabaseConnection.saveSensorDataA("sensorA", sensorAValue, momentOfReading, dateOfReading)
+      currentDatabaseConnection.saveSensorDataB("sensorB", sensorBValue, momentOfReading, dateOfReading)
+      currentDatabaseConnection.saveFanData(fanValue, momentOfReading)
+     
+      if(self.sensors[0].getCurrentValue() > 19):
+        self.fans[0].increaseSpeed(5)
+
+      if(self.sensors[0].getCurrentValue() < 18):
+        self.fans[0].decreaseSpeed(5) 
+
+      time.sleep(1)
 
   def stopSensorSession(self):
     self.active = False

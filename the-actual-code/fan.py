@@ -7,16 +7,8 @@ class Fan:
   
   # attributes
   
-  currentSpeed = 0        #  (0.0 <= dc <= 100.0)
-  FAN_PIN = 18            # BCM pin used to drive PWM fan
-  WAIT_TIME = 1           # [s] Time to wait between each refresh
-  PWM_FREQ = 25           # [kHz] 25kHz for Noctua PWM control TODO: check if this is correct
+  currentSpeed = 0       
   device = None
-
-
-
-
-
 
   # constructor
   def __init__(self):
@@ -24,15 +16,13 @@ class Fan:
     self.device = pwmio.PWMOut(board.D13, frequency=25000, duty_cycle=0)
     print(self.device.duty_cycle)
    
-  
   # methods
   def startSpinning(self):
     print("Spinning started")
-    print(self.device)
+    print("Fan: ", self.device)
   
   def stopSpinning(self):
     print("Spinning stopped")
-    
   
   def increaseSpeed(self, i):
     self.device.duty_cycle = int(i * 2 * 65535 / 100)
