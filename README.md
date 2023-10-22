@@ -14,7 +14,7 @@ A simple project to set up a Raspberry Pi for reading temperature sensors and co
 - [Read tutorials for each component](#read-tutorials-for-each-component)
 - [How to Set Up Your Raspberry Pi](#how-to-set-up-your-raspberry-pi)
 - [Connect to your Rasperry PI (via SSH)](#-connect-to-your-raspberry-pi-via-ssh)
-- [Configure Your Raspberry Pi (via SSH)](#configure-your-raspberry-pi-via-ssh)
+- [Configure Your Raspberry Pi (via a terminal or SSH)](#configure-your-raspberry-pi)
 - [Clone the Repository](#clone-the-repository)
 - [Install the Database](#install-the-database)
 - [Install Flask](#install-flask)
@@ -93,7 +93,7 @@ Flask is a Python web server framework that simplifies the process of setting up
 read [this](how-to-ssh.md) or just use a monitor
 
 
-## Configure Your Raspberry Pi (via SSH):
+## Configure Your Raspberry Pi:
 0. `sudo apt update`
 1. Install Python3 if it's not already preinstalled.
 2. Install SQLite3.
