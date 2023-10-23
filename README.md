@@ -134,11 +134,15 @@ Make sure to read the tutorials carefully. Adafruit has some small testing scrip
 
 You can not mix the Adarfruit Library with the vanilla Raspberry PI GPIO Library. 
 
-## How to Start the Server:
+## How to Start the Server:- 
+- go into the GRINCH directory 
 - Run `python ./the-actual-code/webserver.py`
 
 ## Read more about the actual code
 The code is located in the "the-actual-code" directory. 
+
+The code itself is not very clean. But it works and I hope it is understandable even for people new to python. 
+
 Read more about it [here](the-actual-code/the-actual-code.md)
 
 
