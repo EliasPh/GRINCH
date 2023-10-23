@@ -1,5 +1,5 @@
 # What does database-connection.py do?
-SpeedThis is a Python class called `DatabaseConnection` that represents a connection to a SQLite database. The class has several methods that allow it to save and read data from the database. The class uses the `sqlite3` library to connect to the database and execute SQL queries.
+This is a Python class called `DatabaseConnection` that represents a connection to a SQLite database. The class has several methods that allow it to save and read data from the database. The class uses the `sqlite3` library to connect to the database and execute SQL queries.
 
 The `DatabaseConnection` class has three attributes: `connection`, `cursor`, and `database_name`. The `connection` attribute stores the connection to the database. The `cursor` attribute stores the cursor used to execute SQL queries. The `database_name` attribute stores the name of the database.
 
@@ -9,7 +9,7 @@ The `DatabaseConnection` class has several methods for saving and reading data f
 
 
 # What does fan.py do?
-SpeedThis is a Python class called `Fan` that represents a fan that can be controlled using pulse-width modulation (PWM). The class uses the `pwmio` and `board` libraries to control the fan speed using a PWM signal. The class has several attributes and methods that allow it to start and stop the fan, increase and decrease the fan speed, and get the current fan speed.
+This is a Python class called `Fan` that represents a fan that can be controlled using pulse-width modulation (PWM). The class uses the `pwmio` and `board` libraries to control the fan speed using a PWM signal. The class has several attributes and methods that allow it to start and stop the fan, increase and decrease the fan speed, and get the current fan speed.
 
 The `Fan` class has two attributes: `currentSpeed` and `device`. The `currentSpeed` attribute stores the current speed of the fan. The `device` attribute stores the `pwmio.PWMOut` object used to control the fan.
 
@@ -20,7 +20,7 @@ The `Fan` class has four methods: `startSpinning`, `stopSpinning`, `increaseSpee
 
 
 # What does sensor.py do?
-SpeedThis is a Python class called `Sensor` that represents a sensor that reads temperature from a DHT22 sensor. The class uses the `adafruit_dht` library to read temperature values from the sensor and the `board` library to access the GPIO pins on the Raspberry Pi. The class has several attributes and methods that allow it to read temperature values from the sensor and stop reading from the sensor.
+This is a Python class called `Sensor` that represents a sensor that reads temperature from a DHT22 sensor. The class uses the `adafruit_dht` library to read temperature values from the sensor and the `board` library to access the GPIO pins on the Raspberry Pi. The class has several attributes and methods that allow it to read temperature values from the sensor and stop reading from the sensor.
 
 The `Sensor` class has four attributes: `startTime`, `gpio`, and `device`. The `startTime` attribute stores the time when the sensor was started. The `gpio` attribute stores the GPIO pin number used by the sensor. The `device` attribute stores the `adafruit_dht.DHT22` object used by the sensor.
 
@@ -41,7 +41,7 @@ The Project class has three methods: startSensorSession, stopSensorSession, and 
 
 
 # What does webserver.py do?
-SpeedThis is a Python Flask web server that serves a web page with various routes. The web server is created using the Flask library and the routes are defined using the `@app.route` decorator. The web server has several routes that are used to start and stop a sensor session, view data from the sensor session, create a CSV file from the data, and download the CSV file.
+This is a Python Flask web server that serves a web page with various routes. The web server is created using the Flask library and the routes are defined using the `@app.route` decorator. The web server has several routes that are used to start and stop a sensor session, view data from the sensor session, create a CSV file from the data, and download the CSV file.
 
 The `index` route is the starting page of the web server. It renders an HTML template called `index.html` and passes in some data to be displayed on the page. The data includes the current time, the title of the web page, and whether or not a sensor session is currently running.
 
