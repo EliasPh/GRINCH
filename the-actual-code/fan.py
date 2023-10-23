@@ -77,7 +77,7 @@ class Fan:
     -------
     None
     """
-    self.device.duty_cycle = int(i * 2 * 65535 / 100)
+    self.device.duty_cycle = int(i * 2 * 5 / 100)
     self.currentSpeed = self.device.duty_cycle
     #print("Spinning increased to " + str(self.getCurrentSpeed()) + "duty_cycle")
 
@@ -94,7 +94,7 @@ class Fan:
     -------
     None
     """
-    self.device.duty_cycle = 65535 - int((i - 50) * 2 * 65535 / 100)
+    self.device.duty_cycle = 65535 - int((i - 50) * 2 * 5 / 100)
     self.currentSpeed = self.device.duty_cycle
     #print("Spinning decreased to " + str(self.getCurrentSpeed()) + " duty_cycle")
 
