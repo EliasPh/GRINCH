@@ -82,11 +82,11 @@ class Project:
       """
       Here you can add your own logic to control the fan speed.
       """
-      if(self.sensors[0].getCurrentValue() > 19):
-        self.fans[0].increaseSpeed(500)
+      # if(self.sensors[0].getCurrentValue() > 19):
+      #   self.fans[0].increaseSpeed(500)
 
-      if(self.sensors[0].getCurrentValue() < 18):
-        self.fans[0].decreaseSpeed(500) 
+      # if(self.sensors[0].getCurrentValue() < 18):
+      #   self.fans[0].decreaseSpeed(500) 
 
       """
       Here the program waits for 1 second before reading the sensors again.
