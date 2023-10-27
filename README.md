@@ -18,7 +18,7 @@ A simple project to set up a Raspberry Pi for reading temperature sensors and co
 - [Clone the Repository](#clone-the-repository)
 - [Install the Database](#install-the-database)
 - [Install Flask](#install-flask)
-- [Install the Sensors Software](#install-the-sensors-software)
+- [Install the GPIO Software](#install-the-gpio-software)
 - [How to Start the Server](#how-to-start-the-server)
 - [Read more about the actual code](#read-more-about-the-actual-code)
 - [What does the local homepage look like](#what-does-the-local-homepage-look-like)
@@ -122,8 +122,9 @@ You will find the `sensordata.db` file in your current directory.
 ## Install Flask:
 - `pip3 install flask`
 
-## Install the Sensors Software - This is the most difficuilt part
-Make sure to read carefully. Adafruit has some small testing scripts. Run those too to check if your sensors are working at all before working on this projects code.
+## Install the GPIO Software
+### This is the most difficuilt part, if you understand what adarfruits library does and does not and get this running correctly you managed 90% of the hassle
+Make sure to read the tutorials carefully. Adafruit has some small testing scripts. Run those too to check if your sensors/GPIOs are working at all before working on this projects code.
 
 - Make sure to follow the Adafruit CircuitPython installation instructions: [Adafruit CircuitPython Installation Guide](https://learn.adafruit.com/circuitpython-on-raspberrypi-linux/installing-circuitpython-on-raspberry-pi)
 
@@ -133,11 +134,15 @@ Make sure to read carefully. Adafruit has some small testing scripts. Run those 
 
 You can not mix the Adarfruit Library with the vanilla Raspberry PI GPIO Library. 
 
-## How to Start the Server:
-- Run `python "path to where you cloned the repo/GRINCH/the-actual-code/webserver.py"`
+## How to Start the Server:- 
+- go into the GRINCH directory 
+- Run `python ./the-actual-code/webserver.py`
 
 ## Read more about the actual code
 The code is located in the "the-actual-code" directory. 
+
+The code itself is not very clean. But it works and I hope it is understandable even for people new to python. 
+
 Read more about it [here](the-actual-code/the-actual-code.md)
 
 
