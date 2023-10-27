@@ -53,8 +53,8 @@ class Sensor:
         return currentValue
        else:
         return -1
-    except (RuntimeError, TypeError, NameError):
-      print(RuntimeError, TypeError, NameError)
+    except Exception as e:
+      print(e)
       return -1
 
   def stopReading(self):
